@@ -4,29 +4,29 @@ import fetch from 'node-fetch'
 import { xpRange } from '../lib/levelling.js'
 
 let tags = {
-  'main': 'Info 📚',
-  'search': 'Busquedas 🔎',
-  'game': 'Juegos 🎮',
-  'serbot': 'Sub Bots 🤖',
-  'rpg': 'RPG 🌠',
-  'rg': 'Registro 📁',
-  'sticker': 'Stickers 🏞',
-  'img': 'Imágenes 📸',
-  'group': 'Grupos 👥',
-  'logo': 'Logo - maker 🎨',
-  'nable': 'On / Off 📴', 
-  'downloader': 'Descargas 📥',
-  'tools': 'Herramientas 🔧',
-  'fun': 'Diversión 🎲',
-  'nsfw': 'Nsfw 🔞', 
-  'owner': 'Creador 😺', 
-  'audio': 'Audios 🔉', 
-  'advanced': 'Avanzado 💠',
+  'main': '𝐈𝐍𝐅𝐎',
+  'search': '𝐁𝐔𝐒𝐐𝐔𝐄𝐃𝐀𝐒 🔎',
+  'game': '𝐉𝐔𝐄𝐆𝐎𝐒 🚩',
+  'serbot': '𝐒𝐔𝐁-𝐁𝐎𝐓𝐒',
+  'rpg': '𝐑𝐏𝐆 🍡',
+  'rg': '𝐑𝐄𝐆𝐈𝐒𝐓𝐑𝐎 📁',
+  'sticker': '𝐒𝐓𝐈𝐂𝐊𝐄𝐑𝐒',
+  'img': '𝐈𝐌𝐀𝐆𝐄𝐍𝐄𝐒',
+  'group': '𝐆𝐑𝐔𝐏𝐎𝐒',
+  'logo': '𝐌𝐀𝐊𝐄𝐑 - 𝐋𝐎𝐆𝐎',
+  'nable': '𝐎𝐍 - 𝐎𝐅𝐅', 
+  'downloader': '𝐃𝐄𝐒𝐂𝐀𝐑𝐆𝐀𝐒',
+  'tools': '𝐇𝐄𝐑𝐑𝐀𝐌𝐈𝐄𝐍𝐓𝐀𝐒',
+  'fun': '𝐃𝐈𝐕𝐄𝐑𝐒𝐈𝐎𝐍',
+  'nsfw': '𝐌𝐄𝐍𝐔 +🔞', 
+  'owner': '𝐂𝐑𝐄𝐀𝐃𝐎𝐑', 
+  'audio': '𝐀𝐔𝐃𝐈𝐎𝐒', 
+  'advanced': '𝐀𝐕𝐀𝐍𝐙𝐀𝐃𝐎 📳',
 }
 
 const defaultMenu = {
   before: `
-*꒷꒦꒷꒷꒦꒷꒦꒷꒷꒦꒷꒦꒷꒦꒷꒷꒦꒷꒷꒦꒷꒷꒦꒷꒦꒷꒦꒷꒦꒷*
+
 
 “ hello *%name*, Cómo se encuentra el día de hoy? ”
 
