@@ -7,9 +7,9 @@ let img = catalogo
     contextInfo: {
     	isForwarded: true,
     forwardedNewsletterMessageInfo: {
-      newsletterJid: "120363206717994793@newsletter",
+      newsletterJid: "120363283921434745@newsletter",
       serverMessageId: 100,
-      newsletterName: 'Sumi - Sakursawa Channel 🎌',
+      newsletterName: '𝐂𝐡𝐚𝐧𝐧𝐞𝐥 - 𝐍𝐚𝐤𝐚𝐧𝐨 𝐓𝐞𝐚𝐦',
     },
 	    externalAdReply: {
 				    showAdAttribution: true,
@@ -18,7 +18,7 @@ let img = catalogo
 					mediaUrl: null,
 					description: null,
 					previewType: "PHOTO",
-					thumbnailUrl: 'https://telegra.ph/file/474de03b8c0cf87231d8e.jpg',
+					thumbnailUrl: 'https://i.postimg.cc/GtzGyGhc/ANIME-OSHI-NO-KO-EP-1.jpg',
 		           sourceUrl: canal,
 		           mediaType: 1,
                    renderLargerThumbnail: false
