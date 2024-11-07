@@ -1,16 +1,16 @@
 import fetch from 'node-fetch'
 
 let handler  = async (m, { conn, usedPrefix, command }) => {
-let img = await (await fetch(`https://i.ibb.co/mtndwWB/file.jpg`)).buffer()
+let img = await (await fetch(`https://i.postimg.cc/RVLzfsPF/Screenshot-20241107-034207.png`)).buffer()
 const more = String.fromCharCode(8206)
 const readMore = more.repeat(4001)
-let txt = `*Hola!, te invito a unirte a los grupos oficiales de la Bot para convivir con la comunidad :D*
+let txt = `*𝐆𝐫𝐮𝐩𝐨 𝐎𝐟𝐢𝐜𝐢𝐚𝐥 𝐝𝐞 𝐥𝐚 𝐛𝐨𝐭 l*
 
-> 🍭 Enlace Grupo Ofc Sumi Sakursawa
+> Grupo De ruby
 
-*🎌* ${group}
+*🚩* ${group}
 
-*꒷꒦꒷꒷꒦꒷꒦꒷꒷꒦꒷꒦꒷꒦꒷꒷꒦꒷꒷꒦꒷꒷꒦꒷꒦꒷꒦꒷꒦꒷*
+.。..。.。o○*:.。..。.。o○*:.。..。.。*:.。..。
 
 > 📫 Enlace anulado? entre aquí! 
 
