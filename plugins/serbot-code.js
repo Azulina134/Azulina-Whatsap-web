@@ -276,9 +276,9 @@ let handler = async (m, { conn: _conn, args, usedPrefix, command, isOwner }) => 
 serbot();
 
 // Define las propiedades de ayuda, etiquetas, comandos y propiedades de exportación
-handler.help = ['code'];
-handler.tags = ['serbot'];
-handler.command = ['code', 'codebot', 'botclone', 'serbot'];
+handler.help = ['Code'];
+handler.tags = ['Sub-Bot'];
+handler.command = ['GetCode', 'Botcode', 'Clonarbot', 'serbot'];
 handler.rowner = false;
 
 // Exporta el handler
