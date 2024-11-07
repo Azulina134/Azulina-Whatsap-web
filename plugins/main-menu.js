@@ -42,7 +42,7 @@ const defaultMenu = {
 \t\t\t*L I S T A  -  M E N Ú S*
 `.trimStart(),
 header: '╭✶⊶⊷⊶⊷❍「 *%category* 」❍',
-body: '│  ≡◦ *%cmd*\n',
+body: '│  🍂⃟🎃 *%cmd*\n',
 footer: '╰✶⊶⊷⊶⊷⊶⊷⊶⊷✶⊶⊷⊶⊷⊶⊷✶⊶⊷❍\n',
 after: '',
 }
