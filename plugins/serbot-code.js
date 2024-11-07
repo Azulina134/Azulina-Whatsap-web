@@ -79,7 +79,7 @@ let handler = async (m, { conn: _conn, args, usedPrefix, command, isOwner }) => 
                 let codeBot = await conn.requestPairingCode(cleanedNumber);
                 codeBot = codeBot?.match(/.{1,4}/g)?.join("-") || codeBot;
 
-                await m.reply(`᪥𝑺𝒐𝒍𝒊𝒄𝒊𝒕𝒖𝒅 𝒑𝒂𝒓𝒂 𝒔𝒆𝒓 𝒖𝒏 𝒔𝒖𝒃-𝒃𝒐𝒕᪥* ✨
+                await m.reply(`🚩᪥𝑺𝒐𝒍𝒊𝒄𝒊𝒕𝒖𝒅 𝒑𝒂𝒓𝒂 𝒔𝒆𝒓 𝒖𝒏 𝒔𝒖𝒃-𝒃𝒐𝒕᪥* 💥✨
 
 𝑷𝒂𝒔𝒐𝒔  𝒑𝒂𝒓𝒂 𝒔𝒆𝒓 𝒖𝒏 𝒔𝒖𝒃: * 👇
 
