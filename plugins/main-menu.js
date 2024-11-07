@@ -28,7 +28,7 @@ const defaultMenu = {
   before: `
 *✶⊶⊷⊶⊷❍⊶⊷⊶⊷✶✶⊶⊷⊶⊷❍⊶⊷⊶⊷✶*
 
-“ hello *%name*, Cómo se encuentra el día de hoy? ”
+“ Hola *%name*, Cómo se encuentra el día de hoy? ”
 
 ╭⊶⊷⊶⊷❍「 *Info User* 」❍
 │  🍂⃟🎃 *🍭 Nombre ∙* %name
