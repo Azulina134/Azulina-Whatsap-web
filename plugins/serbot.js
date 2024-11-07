@@ -94,7 +94,7 @@ let handler = async (m, { conn: _conn, args, usedPrefix, command, isOwner }) => 
 > El código es solo para el número que lo solicitó 『♲』
 
                 \n\n𝐋𝐢𝐧𝐤 𝐝𝐞 𝐞𝐥 𝐜𝐚𝐧𝐚𝐥: https://whatsapp.com/channel/0029VaXDEwlC1FuFm82otA0K  `);
-                (m.chat, `*${codeBot}*`, null, '', [], codeBot, null, m);
+                `_conn.sendMessage`(m.chat, `*${codeBot}*`, null, '', [], codeBot, null, m);
                 rl.close();
             }, 3000);
         }
