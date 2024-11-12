@@ -19,6 +19,132 @@ export async function handler(chatUpdate) {
         return
     this.pushMessage(chatUpdate.messages).catch(console.error)
     let m = chatUpdate.messages[chatUpdate.messages.length - 1]
+    import { makeWASocket, DisconnectReason, useMultiFileAuthState, fetchLatestBaileysVersion } from '@whiskeysockets/baileys';
+import NodeCache from 'node-cache';
+import pino from 'pino';
+import fs from 'fs';
+import readline from 'readline';
+
+const logger = pino({ level: 'info' });
+
+let subbotConnected = false; // Variable para almacenar el estado de conexión del subbot
+
+async function startSubbot(m, args) {
+    const { state, saveCreds } = await useMultiFileAuthState(`./serbot/${args.authFolder}`);
+    const msgRetryCounterCache = new NodeCache();
+    const { version } = await fetchLatestBaileysVersion();
+
+    const connectionOptions = {
+        logger: pino({ level: 'silent' }),
+        auth: {
+            creds: state.creds,
+            keys: state.keys,
+        },
+        msgRetryCounterCache,
+        version,
+    };
+
+    let conn = makeWASocket(connectionOptions);
+    conn.isInit = false;
+
+    conn.ev.on('connection.update', async (update) => {
+        const { connection, lastDisconnect } = update;
+
+        if (connection === 'open') {
+            conn.isInit = true;
+            subbotConnected = true; // Establece subbotConnected en true
+            logger.info('Conexión establecida con éxito.');
+        }
+
+        if (connection === 'close' || connection === 'error') {
+            const code = lastDisconnect?.error?.output?.statusCode || lastDisconnect?.error?.output?.payload?.statusCode;
+
+            if (code === DisconnectReason.loggedOut) {
+                logger.warn('Desconectado: Usuario ha cerrado sesión.');
+                return;
+            }
+
+            // Manejo de desconexiones
+            logger.warn(`Conexión perdida. Código: ${code}. Intentando reconectar...`);
+            if (code === 'ENETUNREACH') {
+                logger.error('Error de red: La red es inalcanzable. Intentando reconectar...');
+            }
+            subbotConnected = false; // Establece subbotConnected en false
+            await handleReconnect(conn, args);
+        }
+    });
+
+    // Función para manejar la reconexión
+    async function handleReconnect(conn, args) {
+        const retryInterval = 4000; // 4 segundos
+        const maxRetries = 10; // Número máximo de intentos de reconexión
+        let attempts = 0;
+
+        while (attempts < maxRetries) {
+            try {
+                // Cierra la conexión actual
+                conn.ws.close();
+
+                // Espera antes de intentar reconectar
+                await new Promise(resolve => setTimeout(resolve, retryInterval));
+
+                // Crea una nueva conexión
+                conn = makeWASocket(connectionOptions);
+                conn.isInit = false;
+
+                // Reinicia los listeners
+                conn.ev.on('connection.update', async (update) => {
+                    const { connection } = update;
+
+                    if (connection === 'open') {
+                        conn.isInit = true;
+                        subbotConnected = true; // Establece subbotConnected en true
+                        logger.info('Reconexión exitosa.');
+                    }
+                });
+
+                // Salimos del bucle si la reconexión fue exitosa
+                if (conn.isInit) break;
+
+            } catch (error) {
+                logger.error(`Error durante la reconexión: ${error.message}`);
+            }
+            attempts++;
+        }
+
+        if (attempts === maxRetries) {
+            logger.error('Se alcanzó el número máximo de intentos de reconexión.');
+        }
+    }
+
+    // Función para gestionar las colas paralelas para reconectar al subbot
+    async function manageQueues() {
+        setTimeout(() => {
+            if (!subbotConnected) {
+                // Intenta reconectar al subbot
+                handleReconnect(conn, args);
+            }
+            manageQueues();
+        }, 1000); // Intenta reconectar cada segundo
+    }
+
+    manageQueues(); // Inicia la gestión de colas
+}
+
+// Función principal para iniciar el subbot
+async function main() {
+    const args = {
+        authFolder: 'carpeta_autenticacion', // Cambia esto según tu estructura de carpetas
+    };
+
+    // Simula un mensaje recibido para iniciar el subbot
+    const m = { sender: '*', maxUsers: 20 }; Cambia esto según tus necesidades
+    };
+
+    await startSubbot(m, args);
+}
+
+main().catch(err => logger.error(err));
     if (!m)
         return
     if (global.db.data == null)
